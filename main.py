@@ -48,25 +48,28 @@ class MyListener(StreamListener):
         return True
  
 twitter_stream = Stream(auth, MyListener())
-twitter_stream.filter(track=['#dengue', 'dengue'])
+twitter_stream.filter(track=['#dengue', 'dengue'], languages =['pt'])
                              
-                             
-stream = tweepy.Stream(api, escutadorDeTuites())
-stream.filter(track= tags, languages=['pt'])
+import pandas as pd
+from nltk.tokenize import word_tokenize
+ 
+
+df = pd.read_json("python.json", orient = 'records', lines = True) #Otima opcao de leitura
+
+word_tokenize(" ".join(df['text']), language = 'portuguese')
 
 
 
+import json
+ 
+with open('python.json', 'r') as f:
+    line = f.readline() # read only the first tweet/line
+    tweet = json.loads(line) # load it as Python dict
+    print(json.dumps(tweet, indent=4)) # pretty-print
 
 
 
-
-
-
-
-
-
-
-
+tweet['text']
 
 
 
