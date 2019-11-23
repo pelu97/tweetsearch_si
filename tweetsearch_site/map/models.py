@@ -10,3 +10,11 @@ class TweetSpot(models.Model):
 
     def __unicode__(self):
         return self.title
+
+
+class DayMap(models.Model):
+    date = models.DateField()
+    tweets = []
+
+    def __unicode__(self):
+        return self.date

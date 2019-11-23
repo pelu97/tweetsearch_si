@@ -1,10 +1,8 @@
 from django.shortcuts import render
+import json
+from django.core.serializers import serialize
+from django.http import JsonResponse
 
 from .models import TweetSpot
 
 # Create your views here.
-
-
-def index(request):
-    map = TweetSpot.objects.order_by()
-    return HttpResponse("Hello world. You're at the maps index.")

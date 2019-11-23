@@ -126,7 +126,16 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR
 
+
+SERIALIZATION_MODULES = {
+    "geojson": "django.contrib.gis.serializers.geojson"
+}
+
+
 LEAFLET_CONFIG = {
-    'SPATIAL_EXTENT': (5.0, 44.0, 7.5, 46),
-    'DEFAULT_CENTER': (-15.79, -47.87)
+    # 'SPATIAL_EXTENT': (-16, -48.0, -15, -47),
+    'DEFAULT_CENTER': (-15.79, -47.87),
+    'DEFAULT_ZOOM': 4,
+    'MIN_ZOOM': 4,
+    'MAX_ZOOM': 14,
 }
