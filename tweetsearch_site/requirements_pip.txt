@@ -1,0 +1,6 @@
+Django
+django-geojson
+django-leaflet
+jsonfield
+Pillow
+six
