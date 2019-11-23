@@ -10,13 +10,13 @@ from django.views.generic import TemplateView
 from djgeojson.views import GeoJSONLayerView
 
 from .models import TweetSpot
+from . import views
 
 # from . import views
 
 urlpatterns = [
-    # path('', views.index, name = 'index'),
+    path('', views.index, name = 'home'),
     # url(r'admin/', admin.site.urls),
-    url(r'^$', TemplateView.as_view(template_name = 'map/index.html'), name = 'home'),
-    # path('', GeoJSONLayerView.as_view(model = TweetSpot, properties = ('title', 'description')), name = 'data'),
+    # url(r'^$', TemplateView.as_view(template_name = 'map/index.html'), name = 'home'),
     url(r'data.geojson$', GeoJSONLayerView.as_view(model = TweetSpot, properties = ('title', 'description')), name = 'data'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
