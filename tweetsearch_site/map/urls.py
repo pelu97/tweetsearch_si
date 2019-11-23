@@ -16,6 +16,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name = 'home'),
+    # path('list', views.QueryListView.as_view(), name = "query_select"),
+    path('<int:year>/<int:month>/<int:day>', views.query, name = "query"),
     # url(r'admin/', admin.site.urls),
     # url(r'^$', TemplateView.as_view(template_name = 'map/index.html'), name = 'home'),
     url(r'data.geojson$', GeoJSONLayerView.as_view(model = TweetSpot, properties = ('title', 'description')), name = 'data'),

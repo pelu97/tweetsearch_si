@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <h1>Lista de Buscas</h1>
+  {% if query_list %}
+  <ul>
+    {% for query in query_list %}
+      <li>
+        <a href="{{ query.get_absolute_url }}">{{ query.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Nenhuma busca para acessar</p>
+  {% endif %}
+{% endblock %}
