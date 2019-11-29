@@ -5,18 +5,10 @@ from djgeojson.fields import PointField
 
 
 
-class DayMap(models.Model):
-    title = models.CharField(max_length=256, default="Map")
-    date = models.DateField()
-
-    def __unicode__(self):
-        return self.title
-    def __str__(self):
-        return self.title
-
 
 class Query(models.Model):
     title = models.CharField(max_length=20)
+    est_mun = models.CharField(max_length=1)
 
     def __str__(self):
         return self.title
@@ -25,7 +17,8 @@ class Query(models.Model):
 class TweetSpot(models.Model):
     # daymap = models.ForeignKey(DayMap, on_delete=models.CASCADE)
     title = models.CharField(max_length=256)
-    description = models.TextField()
+    coe_sent = models.FloatField()
+    qt_tweets = models.IntegerField()
     geom = PointField()
     # { "type": "Point", "coordinates": [LONGITUDE, LATITUDE] }
 
