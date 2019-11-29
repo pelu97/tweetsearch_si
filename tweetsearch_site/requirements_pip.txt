@@ -4,3 +4,4 @@ django-leaflet
 jsonfield
 Pillow
 six
+pandas
