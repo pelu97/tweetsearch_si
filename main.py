@@ -71,14 +71,27 @@ with open('python.json', 'r') as f:
 
 tweet['text']
 
+from textblob import TextBlob as tb
 
+count = 0
+soma = 0
 
+for teste in df.text:
+    
+    teste = tb(teste)
+    
+    teste.tags
+    
+    teste = teste.translate(to="en")
+    
+    soma = soma + teste.sentiment.polarity
+    
+    count = count + 1
+    
+print(soma/count)
 
-
-
-
-
-
+#pegar a localizacao
+ df.user.loc[1].get('location', {})
 
 
 
