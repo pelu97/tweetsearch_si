@@ -6,13 +6,12 @@ Created on Sat Nov 30 19:51:17 2019
 """
 
 import pandas as pd
-from nltk.tokenize import word_tokenize
 import json
-from textblob import TextBlob as tb
 
 
+#nao serah definido neste projeto
 class importador():
     
-    def importaBanco(self):
+    def importaBanco():
         return pd.read_json("python.json", orient = 'records', lines = True) #Otima opcao de leitura
 

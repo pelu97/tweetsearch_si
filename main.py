@@ -5,6 +5,8 @@ Created on Thu Oct 24 09:27:16 2019
 @author: gabri
 """
 
+from buscador import buscador
+
 import tweepy as tweepy
 from tweepy import OAuthHandler
 import pandas as pd
@@ -53,7 +55,7 @@ import pandas as pd
 from nltk.tokenize import word_tokenize
  
 
-df = pd.read_json("python.json", orient = 'records', lines = True) #Otima opcao de leitura
+df = pd.read_json("dados/twts.json", orient = 'records', lines = True) #Otima opcao de leitura
 
 word_tokenize(" ".join(df['text']), language = 'portuguese')
 
