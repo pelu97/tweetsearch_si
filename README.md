@@ -11,9 +11,9 @@ para usar, favor faça as alterações necessárias nos paths de leitura do bib_
 Do buscador.buscador para acessar os dados de twts. Ex: 'seuPath/dados/twts.json'.
 
 -Importando: (siga a ordem exata)
-	import seuPath.buscador 
-	from seuPath.bib_backend import analisadorSentimentos
-	from seuPath.bib_backend import filtrador
+	-import seuPath.buscador 
+	-from seuPath.bib_backend import analisadorSentimentos
+	-from seuPath.bib_backend import filtrador
 
 -Uso: 
 
@@ -28,4 +28,4 @@ Do buscador.buscador para acessar os dados de twts. Ex: 'seuPath/dados/twts.json
 									no momento).
 
 obs: Até o momento não foi implementado tratamento de erros nas funções, portanto deve-se passar exatamente os parâmetros que elas esperam. Caso
-contrário a aplicação irá retornar resultados imprevisíveis. 
+contrário a aplicação irá retornar resultados imprevisíveis. 	
