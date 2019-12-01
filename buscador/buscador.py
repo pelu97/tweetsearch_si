@@ -9,6 +9,7 @@ import tweepy as tweepy
 from tweepy import Stream
 from tweepy.streaming import StreamListener
 from time import sleep
+import sys
 
 auth = tweepy.OAuthHandler(
         
@@ -28,7 +29,9 @@ api = tweepy.API(auth, wait_on_rate_limit=True,
                  wait_on_rate_limit_notify=True, 
                  compression=True, 
                  retry_count=9080, 
-                 retry_delay= 15)
+                 retry_delay= 15,
+                 timeout = sys.maxsize
+                 )
 
 class MyListener(StreamListener):
  

@@ -54,7 +54,7 @@ class filtrador():
             
             positivo = 0
             positivo = (estado['nome'] == localizacoes.at[i, 'localizacao'])
-            positivo = positivo +  municipios[municipios.codigo_uf.values == estado.codigo_uf.values].nome.str.contains(localizacoes.at[i,'localizacao']).sum()
+            positivo = positivo +  municipios[municipios.codigo_uf.values is estado.codigo_uf.values].nome.str.contains(localizacoes.at[i,'localizacao']).sum()
           
             
             if positivo.values[0] != 0:
@@ -71,5 +71,41 @@ class filtrador():
         
 class transformador():
     
-    def geraDfGeolocalizado(df, resultadoSentimento):
-        
+    def geraSentimentosEstados(df):
+            
+            resultado = None
+            
+            for i, row in estados.iterrows():
+                
+                aux = filtrador.filtra_por_estado(df = df, ufEstado = estados.at[i, 'uf'])
+                
+                if aux is None:
+                    continue
+                
+                coef = analisadorSentimentos.analisaSentimentosTwts(df = aux)
+                
+                aux2 = pd.DataFrame(data = [[
+                            estados.at[i, 'nome'],
+                            estados.at[i, 'uf'],
+                            estados.at[i, 'lon'],
+                            estados.at[i, 'lat'], 
+                            len(aux.index),
+                            coef
+                            ]],
+                        columns = ['localizacao', 'uf', 'longitude', 'latitude', 'qtd_twts', 'coeficiente_de_sentimento']
+                    
+                        )
+                
+                resultado = pd.DataFrame.append(resultado, aux2, ignore_index = True)
+                
+                
+            return resultado
+                
+                
+                
+                
+                
+                
+                
+                
+                
