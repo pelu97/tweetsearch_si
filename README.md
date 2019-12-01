@@ -10,7 +10,8 @@ Buscador de Tweets para Previsão de Crises de Saúde - Sistemas de Informação
 para usar, favor faça as alterações necessárias nos paths de leitura do bib_backend.filtrador, para acessar os dados na pasta dados. 
 Do buscador.buscador para acessar os dados de twts. Ex: 'seuPath/dados/twts.json'.
 
--Importando: (siga a ordem exata)
+-Importando: 
+	-(siga a ordem exata)
 	-import seuPath.buscador 
 	-from seuPath.bib_backend import analisadorSentimentos
 	-from seuPath.bib_backend import filtrador
