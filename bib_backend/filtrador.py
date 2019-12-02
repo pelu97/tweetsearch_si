@@ -54,7 +54,7 @@ class filtrador():
             
             positivo = 0
             positivo = (estado['nome'] == localizacoes.at[i, 'localizacao'])
-            positivo = positivo +  municipios[municipios.codigo_uf.values is estado.codigo_uf.values].nome.str.contains(localizacoes.at[i,'localizacao']).sum()
+            positivo = positivo +  municipios[municipios.codigo_uf.values == estado.codigo_uf.values].nome.str.contains(localizacoes.at[i,'localizacao']).sum()
           
             
             if positivo.values[0] != 0:
