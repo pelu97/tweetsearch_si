@@ -12,6 +12,7 @@ import json
 import unidecode
 from textblob import TextBlob as tb
 from django.conf import settings
+from map.bib_backend import analisadorSentimentos
 
 #importar aqui os arquivos para leitura do banco.
 
