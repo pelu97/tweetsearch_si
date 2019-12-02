@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Oct 24 09:27:16 2019
+Created on Sat Nov 30 19:46:45 2019
 
 @author: gabri
 """
 
 import tweepy as tweepy
-from tweepy import OAuthHandler
-import pandas as pd
 from tweepy import Stream
 from tweepy.streaming import StreamListener
-                              
+                             
 auth = tweepy.OAuthHandler(
         
         'hekIG6uXiTvaMQZSNTmBWigMp' , 
@@ -45,55 +43,30 @@ class MyListener(StreamListener):
     def on_error(self, status):
         print(status)
         return True
- 
-twitter_stream = Stream(auth, MyListener())
-twitter_stream.filter(track=['#dengue', 'dengue'], languages =['pt'])
-                             
-import pandas as pd
-from nltk.tokenize import word_tokenize
- 
 
-df = pd.read_json("python.json", orient = 'records', lines = True) #Otima opcao de leitura
-
-word_tokenize(" ".join(df['text']), language = 'portuguese')
-
-
-
-import json
- 
-with open('python.json', 'r') as f:
-    line = f.readline() # read only the first tweet/line
-    tweet = json.loads(line) # load it as Python dict
-    print(json.dumps(tweet, indent=4)) # pretty-print
-
-
-
-tweet['text']
-
-from textblob import TextBlob as tb
-
-count = 0
-soma = 0
-
-for teste in df.text:
+class buscaTwts():
     
-    teste = tb(teste)
-    
-    teste.tags
-    
-    teste = teste.translate(to="en")
-    
-    soma = soma + teste.sentiment.polarity
-    
-    count = count + 1
-    
-print(soma/count)
-
-#pegar a localizacao
- df.user.loc[1].get('location', {})
-
-
-
-
-
-
+    def iniciaBusca(self, key, time):
+        twitter_stream = Stream(auth, MyListener())
+        twitter_stream.filter(track=['#' + key, key], languages =['pt'])
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
