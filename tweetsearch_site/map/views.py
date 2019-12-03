@@ -7,8 +7,8 @@ from django.urls import reverse
 
 
 from .models import TweetSpot, Query
-from .load import init, delete, update
-from .forms import QueryConfig
+from .load import delete, update, setkey
+from .forms import QueryConfig, KeyConfig
 
 
 
@@ -22,7 +22,6 @@ def index(request):
         form = QueryConfig(request.POST)
 
         if(form.is_valid()):
-            init()
             dateini = form.cleaned_data['dateini']
             datefim = form.cleaned_data['datefim']
             est_mun = form.cleaned_data['est_mun']
@@ -36,6 +35,24 @@ def index(request):
 
         return render(request, 'map/index.html', context)
     # return render(request, 'map/index.html')
+
+
+def keyconfig(request):
+    if(request.method == 'POST'):
+        form = KeyConfig(request.POST)
+
+        if(form.is_valid()):
+            keyword = form.cleaned_data['keyword']
+            setkey(keyword)
+            return HttpResponseRedirect(reverse("home", args=[]))
+
+    else:
+        form = KeyConfig()
+        context = {
+            'form': form,
+        }
+
+        return render(request, 'map/config.html', context)
 
 
 def query(request, yearini, monthini, dayini, yearfim, monthfim, dayfim):

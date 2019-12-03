@@ -5,12 +5,17 @@ import map.buscador.buscador
 from map.bib_backend import analisadorSentimentos
 from map.bib_backend import filtrador
 
+
 df = 0
 
-def init():
-    global df
-    print("reading twts.json")
-    df = pandas.read_json(settings.BASE_DIR + "/map/dados/twts.json", orient = 'records', lines = True)
+# def init():
+#     global df
+#     print("reading twts.json")
+#     df = pandas.read_json(settings.BASE_DIR + "/map/dados/twts.json", orient = 'records', lines = True)
+
+def setkey(keyword):
+    keyword = 0
+
 
 def delete():
     TweetSpot.objects.all().delete()
