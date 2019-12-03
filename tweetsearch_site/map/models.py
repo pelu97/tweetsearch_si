@@ -15,7 +15,6 @@ class Query(models.Model):
 
 
 class TweetSpot(models.Model):
-    # daymap = models.ForeignKey(DayMap, on_delete=models.CASCADE)
     title = models.CharField(max_length=256)
     coe_sent = models.FloatField()
     qt_tweets = models.IntegerField()
@@ -27,3 +26,5 @@ class TweetSpot(models.Model):
 
     def __str__(self):
         return self.title
+
+    
