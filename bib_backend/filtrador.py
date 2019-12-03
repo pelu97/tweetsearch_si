@@ -24,6 +24,9 @@ class filtrador():
     
     def filtra_por_estado(df, ufEstado):
         
+        if df is None:
+            return None
+        
         localizacoes = None
         
         for user in df.user:
@@ -42,28 +45,35 @@ class filtrador():
                                        columns = ['localizacao'])
             localizacoes = pd.DataFrame.append(localizacoes, aux, ignore_index = True)
         
+        if localizacoes is None:
+            return None
+        
         localizacoes['localizacao'] = localizacoes['localizacao'].apply(unidecode.unidecode).str.lower()
         
         estado = estados[estados.uf == ufEstado]
         resultado = None
         
         for i, row in localizacoes.iterrows():
-            
+                        
             if localizacoes.at[i, 'localizacao'] == '':
                 continue
             
             positivo = 0
             positivo = (estado['nome'] == localizacoes.at[i, 'localizacao'])
             positivo = positivo +  municipios[municipios.codigo_uf.values == estado.codigo_uf.values].nome.str.contains(localizacoes.at[i,'localizacao']).sum()
-          
             
-            if positivo.values[0] != 0:
-                aux= pd.DataFrame(data = [
-                                            df.loc[i]
-                                        ], 
-                                       columns = df.columns)
-                resultado = pd.DataFrame.append(resultado, aux, ignore_index = True)
             
+            if positivo.values[0] > 0:
+                print(estado)
+                if df['id'].count() == 1:
+                    return df
+                else:
+                    aux= pd.DataFrame(data = [
+                                                df.loc[i]
+                                            ], 
+                                           columns = df.columns)
+                    resultado = pd.DataFrame.append(resultado, aux, ignore_index = True)
+                
         return resultado
         
     def filtra_por_municipio(df):
