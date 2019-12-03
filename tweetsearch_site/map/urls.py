@@ -19,7 +19,7 @@ urlpatterns = [
     # path('', views.QueryListView.as_view(), name = "query_select"),
     # path('<int:year>/<int:month>/<int:day>', views.query, name = "query"),
     path('key', views.keyconfig, name = 'keyconfig'),
-    path('<int:yearini>_<int:monthini>_<int:dayini>/<int:yearfim>_<int:monthfim>_<int:dayfim>', views.query, name = "query"),
+    path('<int:yearini>_<int:monthini>_<int:dayini>/<int:yearfim>_<int:monthfim>_<int:dayfim>/<str:keyword>', views.query, name = "query"),
     # path('key/<str:keyword>', views.keyconfig, name = "key"),
     # url(r'admin/', admin.site.urls),
     # url(r'^$', TemplateView.as_view(template_name = 'map/index.html'), name = 'home'),
