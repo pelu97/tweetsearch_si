@@ -11,6 +11,8 @@ from tweepy.streaming import StreamListener
 from time import sleep
 import sys
 
+from django.conf import settings
+
 auth = tweepy.OAuthHandler(
         
         'hekIG6uXiTvaMQZSNTmBWigMp' , 
@@ -37,7 +39,7 @@ class MyListener(StreamListener):
  
     def on_data(self, data):
         try:
-            with open('dados/twts.json', 'a') as f:
+            with open(settings.BASE_DIR + 'dados/twts.json', 'a') as f:
                 f.write(data)
                 #O sleep eh uma solucao provisoria para a aplicacao nao cair quando houverem mtos twts 
                 sleep(0.01) #sugestao: Criar um tratamento para controlar o fluxo de dados
