@@ -1,28 +1,28 @@
-,codigo_uf,uf,nome,lat,lon
-0,11,RO,Rondônia,-15.83,-47.86
-1,12,AC,Acre,-15.83,-47.86
-2,13,AM,Amazonas,-15.83,-47.86
-3,14,RR,Roraima,-15.83,-47.86
-4,15,PA,Pará,-15.83,-47.86
-5,16,AP,Amapá,-15.83,-47.86
-6,17,TO,Tocantins,-15.83,-47.86
-7,21,MA,Maranhão,-15.83,-47.86
-8,22,PI,Piauí,-15.83,-47.86
-9,23,CE,Ceará,-15.83,-47.86
-10,24,RN,Rio Grande do Norte,-15.83,-47.86
-11,25,PB,Paraíba,-15.83,-47.86
-12,26,PE,Pernambuco,-15.83,-47.86
-13,27,AL,Alagoas,-15.83,-47.86
-14,28,SE,Sergipe,-15.83,-47.86
-15,29,BA,Bahia,-15.83,-47.86
-16,31,MG,Minas Gerais,-15.83,-47.86
-17,32,ES,Espírito Santo,-15.83,-47.86
-18,33,RJ,Rio de Janeiro,-15.83,-47.86
-19,35,SP,São Paulo,-15.83,-47.86
-20,41,PR,Paraná,-15.83,-47.86
-21,42,SC,Santa Catarina,-15.83,-47.86
-22,43,RS,Rio Grande do Sul,-15.83,-47.86
-23,50,MS,Mato Grosso do Sul,-15.83,-47.86
-24,51,MT,Mato Grosso,-15.83,-47.86
-25,52,GO,Goiás,-15.83,-47.86
-26,53,DF,Distrito Federal,-15.83,-47.86
+,Unnamed: 0,codigo_uf,uf,nome,lat,lon
+0,0,11,RO,rondonia,-11.22,-62.8
+1,1,12,AC,acre,-8.77,-70.55
+2,2,13,AM,amazonas,-3.07,-61.66
+3,3,14,RR,roraima,1.89,-61.22
+4,4,15,PA,para,-5.53,-52.29
+5,5,16,AP,amapa,1.41,-51.77
+6,6,17,TO,tocantins,-10.25,-48.25
+7,7,21,MA,maranhao,-2.55,-44.3
+8,8,22,PI,piaui,-8.28,-43.68
+9,9,23,CE,ceara,-3.71,-38.54
+10,10,24,RN,rio grande do norte,-5.22,-36.52
+11,11,25,PB,paraiba,-7.06,-35.55
+12,12,26,PE,pernambuco,-8.28,-35.07
+13,13,27,AL,alagoas,-9.71,-35.73
+14,14,28,SE,sergipe,-10.9,-37.07
+15,15,29,BA,bahia,-12.96,-38.51
+16,16,31,MG,minas gerais,-18.1,-44.38
+17,17,32,ES,espirito santo,-19.19,-40.34
+18,18,33,RJ,rio de janeiro,-22.84,-43.15
+19,19,35,SP,sao paulo,-23.55,-46.64
+20,20,41,PR,parana,-24.89,-51.55
+21,21,42,SC,santa catarina,-27.33,-49.44
+22,22,43,RS,rio grande do sul,-30.01,-51.22
+23,23,50,MS,mato grosso do sul,-20.51,-54.54
+24,24,51,MT,mato grosso,-12.64,-55.42
+25,25,52,GO,goias,-16.64,-49.31
+26,26,53,DF,distrito federal,-15.83,-47.86
