@@ -56,7 +56,7 @@ def keyconfig(request):
         return render(request, 'map/config.html', context)
 
 
-def query(request, yearini, monthini, dayini, yearfim, monthfim, dayfim):
+def query(request, yearini, monthini, dayini, yearfim, monthfim, dayfim, keyword):
     if(dayini < 10):
         new_query_ini = "%s-%s-0%s" % (yearini, monthini, dayini)
     else:
@@ -67,6 +67,6 @@ def query(request, yearini, monthini, dayini, yearfim, monthfim, dayfim):
         new_query_fim = "%s-%s-%s" % (yearfim, monthfim, dayfim)
 
     delete()
-    update(new_query_ini, new_query_fim)
+    update(new_query_ini, new_query_fim, keyword)
 
     return render(request, "map/query.html")
