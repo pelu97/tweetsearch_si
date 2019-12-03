@@ -16,14 +16,14 @@ def delete():
     TweetSpot.objects.all().delete()
 
 
-def update(new_query):
+def update(new_query_ini, new_query_fim):
     global df
     df = pandas.read_json(settings.BASE_DIR + "/map/dados/twts.json", orient = 'records', lines = True)
 
     # print(new_query)
     # print(df)
     # print(df[df["created_at"].dt.date.astype(str) == new_query])
-    df_loc = df.loc[df["created_at"].dt.date.astype(str) == new_query]
+    df_loc = df.loc[(df["created_at"].dt.date.astype(str) >= new_query_ini) & (df["created_at"].dt.date.astype(str) <= new_query_fim)]
     # print(df_loc.loc[19])
     # print(df_loc.index[0])
     df_proc = filtrador.transformador.geraSentimentosEstados(df_loc)

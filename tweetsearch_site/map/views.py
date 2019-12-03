@@ -23,9 +23,10 @@ def index(request):
 
         if(form.is_valid()):
             init()
-            date = form.cleaned_data['date']
+            dateini = form.cleaned_data['dateini']
+            datefim = form.cleaned_data['datefim']
             est_mun = form.cleaned_data['est_mun']
-            return HttpResponseRedirect(reverse("query", args=[date.year, date.month, date.day]))
+            return HttpResponseRedirect(reverse("query", args=[dateini.year, dateini.month, dateini.day, datefim.year, datefim.month, datefim.day]))
 
     else:
         form = QueryConfig()
@@ -37,13 +38,17 @@ def index(request):
     # return render(request, 'map/index.html')
 
 
-def query(request, year, month, day):
-    if(day < 10):
-        new_query = "%s-%s-0%s" % (year, month, day)
+def query(request, yearini, monthini, dayini, yearfim, monthfim, dayfim):
+    if(dayini < 10):
+        new_query_ini = "%s-%s-0%s" % (yearini, monthini, dayini)
     else:
-        new_query = "%s-%s-%s" % (year, month, day)
+        new_query_ini = "%s-%s-%s" % (yearini, monthini, dayini)
+    if(dayfim < 10):
+        new_query_fim = "%s-%s-0%s" % (yearfim, monthfim, dayfim)
+    else:
+        new_query_fim = "%s-%s-%s" % (yearfim, monthfim, dayfim)
 
     delete()
-    update(new_query)
+    update(new_query_ini, new_query_fim)
 
     return render(request, "map/query.html")
