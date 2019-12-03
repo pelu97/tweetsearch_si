@@ -55,8 +55,9 @@ class filtrador():
         estado = estados[estados.uf == ufEstado]
         resultado = None
 
+        # print(localizacoes)
         for i, row in localizacoes.iterrows():
-
+            # print(localizacoes.loc[i])
             if localizacoes.at[i, 'localizacao'] == '':
                 continue
 
@@ -68,10 +69,10 @@ class filtrador():
             if positivo.values[0] > 0:
                 print(estado)
                 if df['id'].count() == 1:
-                    return df
+                    return pd.DataFrame.append(None, df, ignore_index = True)
                 else:
                     aux= pd.DataFrame(data = [
-                                                df.loc[i]
+                                                df.loc[i + df.index[0]]
                                             ],
                                            columns = df.columns)
                     resultado = pd.DataFrame.append(resultado, aux, ignore_index = True)
