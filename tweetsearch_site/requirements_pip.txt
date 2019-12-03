@@ -1,0 +1,10 @@
+Django
+django-geojson
+django-leaflet
+jsonfield
+Pillow
+six
+pandas
+textblob
+unidecode
+tweepy
