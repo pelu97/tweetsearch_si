@@ -20,5 +20,5 @@ urlpatterns = [
     path('<int:year>/<int:month>/<int:day>', views.query, name = "query"),
     # url(r'admin/', admin.site.urls),
     # url(r'^$', TemplateView.as_view(template_name = 'map/index.html'), name = 'home'),
-    url(r'data.geojson$', GeoJSONLayerView.as_view(model = TweetSpot, properties = ('title', 'description')), name = 'data'),
+    url(r'data.geojson$', GeoJSONLayerView.as_view(model = TweetSpot, properties = ('title', 'qt_tweets', 'coe_sent', 'desc_qt', 'desc_coe')), name = 'data'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
