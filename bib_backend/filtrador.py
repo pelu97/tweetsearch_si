@@ -52,7 +52,7 @@ class filtrador():
         
         estado = estados[estados.uf == ufEstado]
         resultado = None
-        
+
         for i, row in localizacoes.iterrows():
                         
             if localizacoes.at[i, 'localizacao'] == '':
@@ -64,7 +64,7 @@ class filtrador():
             
             
             if positivo.values[0] > 0:
-                print(estado)
+            
                 if df['id'].count() == 1:
                     return df
                 else:
