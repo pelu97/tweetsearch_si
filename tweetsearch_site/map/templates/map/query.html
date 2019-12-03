@@ -20,7 +20,7 @@
             L.geoJson(data, {
               onEachFeature: function onEachFeature(feature, layer) {
                 var props = feature.properties;
-                var content = `<h3>${props.title}</h3><p>Quantidade de tweets: ${props.qt_tweets}</p><p>Coeficiente de sentimento: ${props.coe_sent}</p>`;
+                var content = `<h3>${props.title}</h3><p>Quantidade de tweets: ${props.qt_tweets}</p><p>Coeficiente de sentimento (-1 a 1): ${props.coe_sent}</p>`;
                 layer.bindPopup(content);
             }}).addTo(map);
           });
