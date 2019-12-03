@@ -8,7 +8,9 @@ Created on Sat Nov 30 19:46:45 2019
 import tweepy as tweepy
 from tweepy import Stream
 from tweepy.streaming import StreamListener
-                             
+from time import sleep
+import sys
+
 auth = tweepy.OAuthHandler(
         
         'hekIG6uXiTvaMQZSNTmBWigMp' , 
@@ -27,14 +29,18 @@ api = tweepy.API(auth, wait_on_rate_limit=True,
                  wait_on_rate_limit_notify=True, 
                  compression=True, 
                  retry_count=9080, 
-                 retry_delay= 15)
+                 retry_delay= 15,
+                 timeout = sys.maxsize
+                 )
 
 class MyListener(StreamListener):
  
     def on_data(self, data):
         try:
-            with open('python.json', 'a') as f:
+            with open('dados/twts.json', 'a') as f:
                 f.write(data)
+                #O sleep eh uma solucao provisoria para a aplicacao nao cair quando houverem mtos twts 
+                sleep(0.01) #sugestao: Criar um tratamento para controlar o fluxo de dados
                 return True
         except BaseException as e:
             print("Error on_data: %s" % str(e))
@@ -46,7 +52,7 @@ class MyListener(StreamListener):
 
 class buscaTwts():
     
-    def iniciaBusca(self, key, time):
+    def iniciaBusca(key, time):
         twitter_stream = Stream(auth, MyListener())
         twitter_stream.filter(track=['#' + key, key], languages =['pt'])
                                      

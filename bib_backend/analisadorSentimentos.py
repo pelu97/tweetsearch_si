@@ -12,7 +12,7 @@ from nltk.tokenize import word_tokenize
 class analisadorSentimentos():
     
     
-    def analisaSentimentosTwts(self, df):
+    def analisaSentimentosTwts(df):
         
         count = 0
         soma = 0
@@ -28,5 +28,7 @@ class analisadorSentimentos():
             count = count + 1
     
         return(soma/count)
+        
+    
 
         
