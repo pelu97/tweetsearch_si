@@ -38,7 +38,11 @@ def index(request):
 
 
 def query(request, year, month, day):
-    new_query = "%s-%s-%s" % (year, month, day)
+    if(day < 10):
+        new_query = "%s-%s-0%s" % (year, month, day)
+    else:
+        new_query = "%s-%s-%s" % (year, month, day)
+
     delete()
     update(new_query)
 
