@@ -21,9 +21,9 @@ def delete():
     TweetSpot.objects.all().delete()
 
 
-def update(new_query_ini, new_query_fim):
+def update(new_query_ini, new_query_fim, keyword):
     global df
-    df = pandas.read_json(settings.BASE_DIR + "/map/dados/twts.json", orient = 'records', lines = True)
+    df = pandas.read_json(settings.BASE_DIR + "/map/dados/" + keyword + ".json", orient = 'records', lines = True)
 
     # print(new_query)
     # print(df)
