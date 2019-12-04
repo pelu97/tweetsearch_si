@@ -18,6 +18,7 @@ OU
 	
 	*python3 manage.py runserver <PORTA>*  
 OU  
+	
 	*python3 manage.py runserver 0<PORTA>*  
 
 onde <PORTA> deve ser substituído por um número não utilizado no momento, como 7000 por exemplo:  
@@ -46,5 +47,6 @@ A interface estará no ip local 127.0.0.1:<PORTA> OU <IP DA MÁQUINA>:<PORTA>
 
 ##-- BUSCADOR:
 	A busca deverá ser executada manualmente. Para isso, abra um terminal na pasta raiz/tweetsearch_site/map e digite o seguinte comando:
+		
 		*python3 busca.py*
-	A busca será executada pela palavra chave que foi configurada na interface (Veja o passo de configurar a palavra chave na interface)
+A busca será executada pela palavra chave que foi configurada na interface (Veja o passo de configurar a palavra chave na interface)
