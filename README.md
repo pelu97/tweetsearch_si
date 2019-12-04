@@ -8,7 +8,7 @@ Buscador de Tweets para Previsão de Crises de Saúde - Sistemas de Informação
 A aplicação possui dois módulos, o buscador e a interface:
 
 ### -- INTERFACE:
-	Para abrir a interface, deve-se abrir um terminal na pasta raiz/tweetsearch_site e executar o comando:   
+Para abrir a interface, deve-se abrir um terminal na pasta raiz/tweetsearch_site e executar o comando:   
 		
 		*python3 manage.py runserver <IP>:<PORTA>*  
 OU  
