@@ -11,7 +11,7 @@ from tweepy.streaming import StreamListener
 from time import sleep
 import sys
 
-from django.conf import settings
+# from django.conf import settings
 
 globalkey = None
 
@@ -42,7 +42,7 @@ class MyListener(StreamListener):
     def on_data(self, data):
         try:
             global globalkey
-            with open(settings.BASE_DIR + 'dados/' + globalkey + '.json', 'a') as f:
+            with open('dados/' + globalkey + '.json', 'a') as f:
                 f.write(data)
                 #O sleep eh uma solucao provisoria para a aplicacao nao cair quando houverem mtos twts
                 sleep(0.01) #sugestao: Criar um tratamento para controlar o fluxo de dados
@@ -62,3 +62,15 @@ class buscaTwts():
         globalkey = key
         twitter_stream = Stream(auth, MyListener())
         twitter_stream.filter(track=['#' + key, key], languages =['pt'])
+
+def main():
+    print("Iniciando busca")
+    with open('key.txt', 'r') as keyfile:
+        key = keyfile.read()
+        if(key[-1] == '\n'):
+            key = key[:-1]
+        print("Buscando pela palavra: %s" % (key))
+        buscaTwts.iniciaBusca(key, 10)
+
+if __name__ == "__main__":
+    main()
