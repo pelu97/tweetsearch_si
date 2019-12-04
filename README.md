@@ -3,11 +3,11 @@
 Buscador de Tweets para Previsão de Crises de Saúde - Sistemas de Informação
 
 
-#Explicacao de uso:
+## Explicacao de uso:
 
 A aplicação possui dois módulos, o buscador e a interface:
 
-## -- INTERFACE:
+### -- INTERFACE:
 	Para abrir a interface, deve-se abrir um terminal na pasta raiz/tweetsearch_site e executar o comando:   
 		
 		*python3 manage.py runserver <IP>:<PORTA>*  
@@ -46,8 +46,9 @@ A interface estará no ip local 127.0.0.1:<PORTA> OU <IP DA MÁQUINA>:<PORTA>
 		(Uma palavra chave que o buscador irá procurar)
 	  Após configurar, a busca deve ser rodada (Veja o passo do buscador)
 
-## -- BUSCADOR:
-	A busca deverá ser executada manualmente. Para isso, abra um terminal na pasta raiz/tweetsearch_site/map e digite o seguinte comando:
+### -- BUSCADOR:
+A busca deverá ser executada manualmente. Para isso, abra um terminal na pasta raiz/tweetsearch_site/map e digite o seguinte comando:
 		
 		*python3 busca.py*
+		
 A busca será executada pela palavra chave que foi configurada na interface (Veja o passo de configurar a palavra chave na interface)
