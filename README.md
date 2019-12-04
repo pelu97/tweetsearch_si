@@ -34,12 +34,18 @@ A interface estará no ip local *127.0.0.1:PORTA* OU *IP DA MÁQUINA:PORTA*
 	Para acessar deve ser inserido o link *IP:PORTA/map*
 	(Para facilidade, vamos resumir que "/alguma_pagina" significa que esse /alguma_pagina deve ser colocado ao lado do endereço)
 	É dentro do /map que a interface reside.
-	-Para visualizar uma busca:
-	  Deve-se acessar /map e digitar os parâmetros:
-	 	-Data início do filtro
-	 	-Data final do filtro
-	 	-Estado ou município (funcionalidade não existente no momento)
-	 	-Palavra chave da busca a ser visualizada
+
+-Para visualizar uma busca:
+
+Deve-se acessar /map e digitar os parâmetros:
+	  
+-Data início do filtro
+
+-Data final do filtro
+
+-Estado ou município (funcionalidade não existente no momento)
+
+-Palavra chave da busca a ser visualizada
 	 
 **ATENÇÃO!**
 
@@ -48,10 +54,13 @@ A interface estará no ip local *127.0.0.1:PORTA* OU *IP DA MÁQUINA:PORTA*
 **- Se a busca escolhida nao tiver dados para a data escolhida , ocorrerá um erro. deve-se apenas alterar a data para um que contenha dados na busca da palavra chave**
 
 -Para configurar a busca:
-	  Deve-se acessar /map/key e digitar o parâmetro:
-	  	-Palavra chave da busca
-		(Uma palavra chave que o buscador irá procurar)
-	  Após configurar, a busca deve ser rodada (Veja o passo do buscador)
+
+Deve-se acessar /map/key e digitar o parâmetro:
+
+-Palavra chave da busca
+(Uma palavra chave que o buscador irá procurar)
+	  
+Após configurar, a busca deve ser rodada (Veja o passo do buscador)
 
 ### -- BUSCADOR:
 A busca deverá ser executada manualmente. Para isso, abra um terminal na pasta raiz/tweetsearch_site/map e digite o seguinte comando:
