@@ -40,8 +40,8 @@ A interface estará no ip local 127.0.0.1:<PORTA> OU <IP DA MÁQUINA>:<PORTA>
 	 	-Estado ou município (funcionalidade não existente no momento)
 	 	-Palavra chave da busca a ser visualizada
 	 
-**ATENÇÃO! 
-- Se a palavra chave não tiver sido pesquisada, ocorrerá um erro! Deve existir uma busca por essa palavra chave para conseguir mostrar a mesma**
+**ATENÇÃO!**
+**- Se a palavra chave não tiver sido pesquisada, ocorrerá um erro! Deve existir uma busca por essa palavra chave para conseguir mostrar a mesma**
 **- Se a busca escolhida nao tiver dados para a data escolhida , ocorrerá um erro. deve-se apenas alterar a data para um que contenha dados na busca da palavra chave**
 
 	-Para configurar a busca:
