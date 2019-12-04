@@ -25,7 +25,8 @@ def index(request):
             dateini = form.cleaned_data['dateini']
             datefim = form.cleaned_data['datefim']
             est_mun = form.cleaned_data['est_mun']
-            return HttpResponseRedirect(reverse("query", args=[dateini.year, dateini.month, dateini.day, datefim.year, datefim.month, datefim.day]))
+            keyword = form.cleaned_data['keyword']
+            return HttpResponseRedirect(reverse("query", args=[dateini.year, dateini.month, dateini.day, datefim.year, datefim.month, datefim.day, keyword]))
 
     else:
         form = QueryConfig()
@@ -55,7 +56,7 @@ def keyconfig(request):
         return render(request, 'map/config.html', context)
 
 
-def query(request, yearini, monthini, dayini, yearfim, monthfim, dayfim):
+def query(request, yearini, monthini, dayini, yearfim, monthfim, dayfim, keyword):
     if(dayini < 10):
         new_query_ini = "%s-%s-0%s" % (yearini, monthini, dayini)
     else:
@@ -66,6 +67,6 @@ def query(request, yearini, monthini, dayini, yearfim, monthfim, dayfim):
         new_query_fim = "%s-%s-%s" % (yearfim, monthfim, dayfim)
 
     delete()
-    update(new_query_ini, new_query_fim)
+    update(new_query_ini, new_query_fim, keyword)
 
     return render(request, "map/query.html")

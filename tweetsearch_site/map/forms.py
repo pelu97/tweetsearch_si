@@ -10,7 +10,7 @@ class QueryConfig(forms.Form):
                                           '%d/%m/%y',
                                           '%Y-%m-%d'])
     est_mun = forms.CharField(help_text="Insira se deseja mostrar os resultados agrupados por Estado (E) ou Municipio (M).", max_length=1)
-
+    keyword = forms.CharField(help_text = "Digite o nome da doença a ser pesquisada:", max_length = 50)
 
 class KeyConfig(forms.Form):
     keyword = forms.CharField(help_text = "Digite o nome da doença a ser pesquisada:", max_length = 50)

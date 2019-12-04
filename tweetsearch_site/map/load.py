@@ -14,16 +14,17 @@ df = 0
 #     df = pandas.read_json(settings.BASE_DIR + "/map/dados/twts.json", orient = 'records', lines = True)
 
 def setkey(keyword):
-    keyword = 0
+    with open(settings.BASE_DIR + "/map/buscador/key.txt", 'w') as keyfile:
+        keyfile.write(keyword)
 
 
 def delete():
     TweetSpot.objects.all().delete()
 
 
-def update(new_query_ini, new_query_fim):
+def update(new_query_ini, new_query_fim, keyword):
     global df
-    df = pandas.read_json(settings.BASE_DIR + "/map/dados/twts.json", orient = 'records', lines = True)
+    df = pandas.read_json(settings.BASE_DIR + "/map/dados/" + keyword + ".json", orient = 'records', lines = True)
 
     # print(new_query)
     # print(df)
