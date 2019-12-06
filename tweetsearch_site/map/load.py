@@ -4,6 +4,8 @@ import pandas
 import map.buscador.buscador
 from map.bib_backend import analisadorSentimentos
 from map.bib_backend import filtrador
+import os
+
 
 
 df = 0
@@ -16,6 +18,9 @@ df = 0
 def setkey(keyword):
     with open(settings.BASE_DIR + "/map/buscador/key.txt", 'w') as keyfile:
         keyfile.write(keyword)
+    command = "python3 " + settings.BASE_DIR + "/map/busca.py"
+    os.system("gnome-terminal -e 'bash -c \"" + command + "; sleep 1000000\"'")
+    # os.system('python3 ' + settings.BASE_DIR + '/map/busca.py')
 
 
 def delete():
