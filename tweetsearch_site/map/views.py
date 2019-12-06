@@ -24,7 +24,7 @@ def index(request):
         if(form.is_valid()):
             dateini = form.cleaned_data['dateini']
             datefim = form.cleaned_data['datefim']
-            est_mun = form.cleaned_data['est_mun']
+            #est_mun = form.cleaned_data['est_mun']
             keyword = form.cleaned_data['keyword']
             return HttpResponseRedirect(reverse("query", args=[dateini.year, dateini.month, dateini.day, datefim.year, datefim.month, datefim.day, keyword]))
 
