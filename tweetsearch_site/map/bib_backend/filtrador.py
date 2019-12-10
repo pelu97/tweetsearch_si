@@ -16,14 +16,17 @@ from map.bib_backend import analisadorSentimentos
 
 #importar aqui os arquivos para leitura do banco.
 
+#importa base da dos acerca dos estados e municipios
 estados = pd.read_csv(settings.BASE_DIR + '/map/dados/estados.csv')
 municipios = pd.read_csv(settings.BASE_DIR + '/map/dados/municipios.csv')
 
+#retira acentos e letras maiusculas dos nomes dos estados e municipios
 estados['nome'] = estados['nome'].apply(unidecode.unidecode).str.lower()
 municipios['nome'] = municipios['nome'].apply(unidecode.unidecode).str.lower()
 
 class filtrador():
-
+    
+    #-Recebe um df com os twts tal como no formato gerado em json pela tweepy; recebe string com UF do estado
     def filtra_por_estado(df, ufEstado):
 
         if df is None:
@@ -31,25 +34,29 @@ class filtrador():
 
         localizacoes = None
 
+        #extraindo localizacoes dos usuarios
         for user in df.user:
 
             if user.get('location', {}) is None:
+                #se nao hah localizacao a mesma eh preenchida como vazia
                 aux = pd.DataFrame(data = [
                                             ''
                                         ],
                                        columns = ['localizacao'])
                 localizacoes = pd.DataFrame.append(localizacoes, aux)
                 continue
-
+            
+            #pega a localizacao
             aux = pd.DataFrame(data = [
                                             user.get('location', {}).split(',')[0]
                                         ],
                                        columns = ['localizacao'])
             localizacoes = pd.DataFrame.append(localizacoes, aux, ignore_index = True)
-
+        
         if localizacoes is None:
             return None
-
+        
+        #retira acentos e letras maiusculas
         localizacoes['localizacao'] = localizacoes['localizacao'].apply(unidecode.unidecode).str.lower()
 
         estado = estados[estados.uf == ufEstado]
@@ -60,19 +67,23 @@ class filtrador():
             # print(localizacoes.loc[i])
             if localizacoes.at[i, 'localizacao'] == '':
                 continue
-
+            
+            # cria variavel booleana
             positivo = 0
+            
+            #se a localizacao eh algum estado, o vetor positivo serah true
             positivo = (estado['nome'] == localizacoes.at[i, 'localizacao'])
-            positivo = positivo +  municipios[municipios.codigo_uf.values == estado.codigo_uf.values].nome.str.contains(localizacoes.at[i,'localizacao']).sum()
+            #se a localizacao eh algum dos municipios pertencentes ao estado, positivo serah true
+            positivo = positivo.sum() +  municipios[municipios.codigo_uf.values == estado.codigo_uf.values].nome.str.contains(localizacoes.at[i,'localizacao']).sum()
 
 
-            if positivo.values[0] > 0:
+            if positivo > 0:
                 print(estado)
                 if df['id'].count() == 1:
-                    return pd.DataFrame.append(None, df, ignore_index = True)
+                    return pd.DataFrame.append(None, df, ignore_index = True) #gambiarra para refazer indexs
                 else:
                     aux= pd.DataFrame(data = [
-                                                df.loc[i + df.index[0]]
+                                                df.loc[i + df.index[0]] #encontra posicao correta com base no index zero
                                             ],
                                            columns = df.columns)
                     resultado = pd.DataFrame.append(resultado, aux, ignore_index = True)
@@ -83,7 +94,7 @@ class filtrador():
         return
 
 class transformador():
-
+    
     def geraSentimentosEstados(df):
 
             resultado = None
@@ -95,7 +106,7 @@ class transformador():
                 if aux is None:
                     continue
 
-                coef = analisadorSentimentos.analisadorSentimentos.analisaSentimentosTwts(df = aux)
+                coef = analisadorSentimentos.analisaSentimentosTwts(df = aux)
 
                 aux2 = pd.DataFrame(data = [[
                             estados.at[i, 'nome'],

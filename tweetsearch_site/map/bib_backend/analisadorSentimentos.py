@@ -11,7 +11,6 @@ from nltk.tokenize import word_tokenize
 
 class analisadorSentimentos():
     
-    
     def analisaSentimentosTwts(df):
         
         count = 0
@@ -19,15 +18,16 @@ class analisadorSentimentos():
         
         for twt in df.text:
     
-            twt = tb(twt)
+            twt = tb(twt) 
             
             twt = twt.translate(to="en")
             
-            soma = soma + twt.sentiment.polarity
+            soma = soma + twt.sentiment.polarity 
             
             count = count + 1
     
-        return(soma/count)
+        return(soma/count) #retorna media dos sentimentos --> Seria interessante retornar
+                            #mediana, desvio padrao e media
         
     
 

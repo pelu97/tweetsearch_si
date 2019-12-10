@@ -13,9 +13,10 @@ import sys
 
 # from django.conf import settings
 
-globalkey = None
-globalpath = None
+globalkey = None #chave de busca
+globalpath = None 
 
+#Chaves disponibilizadas por Alvarez e Vale, para acesso a api do twter
 auth = tweepy.OAuthHandler(
 
         'hekIG6uXiTvaMQZSNTmBWigMp' ,
@@ -30,12 +31,13 @@ auth.set_access_token(
 
         )
 
+#definicao da api com o timeout setado para o maior valor disponivel em uma variavel na maquina
 api = tweepy.API(auth, wait_on_rate_limit=True,
                  wait_on_rate_limit_notify=True,
                  compression=True,
                  retry_count=9080,
                  retry_delay= 15,
-                 timeout = sys.maxsize
+                 timeout = sys.maxsize #por aqui se pode gerenciar o timeout
                  )
 
 class MyListener(StreamListener):
@@ -66,7 +68,8 @@ class buscaTwts():
         globalpath = path
         twitter_stream = Stream(auth, MyListener())
         twitter_stream.filter(track=['#' + key, key], languages =['pt'])
-#
+
+        
 # def main():
 #     print("Iniciando busca")
 #     with open('key.txt', 'r') as keyfile:
