@@ -2,10 +2,10 @@ db:
   image: postgres
 web:
   build: .
-  command: python manage.py runserver 0.0.0.0:4000
+  command: python manage.py runserver 0.0.0.0:3000
   volumes:
     - .:/code
   ports:
-    - "4000:4000"
+    - "3000:3000"
   links:
   - db
