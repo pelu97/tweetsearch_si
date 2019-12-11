@@ -55,7 +55,7 @@ import pandas as pd
 from nltk.tokenize import word_tokenize
  
 
-df = pd.read_json("dados/twts.json", orient = 'records', lines = True) #Otima opcao de leitura
+df = pd.read_json("dados/spotify.json", orient = 'records', lines = True) #Otima opcao de leitura
 
 word_tokenize(" ".join(df['text']), language = 'portuguese')
 
