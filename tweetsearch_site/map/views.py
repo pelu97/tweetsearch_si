@@ -34,7 +34,7 @@ def index(request):
             'form': form,
         }
 
-        return render(request, 'map/index.html', context)
+        return render(request, 'map/mapconfig.html', context)
     # return render(request, 'map/index.html')
 
 
@@ -53,7 +53,7 @@ def keyconfig(request):
             'form': form,
         }
 
-        return render(request, 'map/config.html', context)
+        return render(request, 'map/keyconfig.html', context)
 
 
 def query(request, yearini, monthini, dayini, yearfim, monthfim, dayfim, keyword):

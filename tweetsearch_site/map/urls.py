@@ -15,7 +15,7 @@ from . import views
 # from . import views
 
 urlpatterns = [
-    path('', views.index, name = 'home'),
+    path('', views.index, name = 'map'),
     # path('', views.QueryListView.as_view(), name = "query_select"),
     # path('<int:year>/<int:month>/<int:day>', views.query, name = "query"),
     path('key', views.keyconfig, name = 'keyconfig'),
@@ -23,5 +23,5 @@ urlpatterns = [
     # path('key/<str:keyword>', views.keyconfig, name = "key"),
     # url(r'admin/', admin.site.urls),
     # url(r'^$', TemplateView.as_view(template_name = 'map/index.html'), name = 'home'),
-    url(r'data.geojson$', GeoJSONLayerView.as_view(model = TweetSpot, properties = ('title', 'qt_tweets', 'coe_sent', 'desc_qt', 'desc_coe')), name = 'data'),
+    url(r'data.geojson$', GeoJSONLayerView.as_view(model = TweetSpot, properties = ('title', 'qtd_tweets', 'qtd_positivos', 'qtd_negativos', 'coe_sent', 'desc_qt', 'desc_coe')), name = 'data'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

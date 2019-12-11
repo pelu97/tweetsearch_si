@@ -1,6 +1,7 @@
-
-pip:
-
-Django
-django-geojson
-django-leaflet
+NLTK:
+if error on any of the nltk.download('package'):
+    run:
+        python3
+        import nltk
+        nltk.download()
+    and download manually (one time installation);
