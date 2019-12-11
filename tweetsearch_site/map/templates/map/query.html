@@ -20,7 +20,7 @@
             L.geoJson(data, {
               onEachFeature: function onEachFeature(feature, layer) {
                 var props = feature.properties;
-                var content = `<h3>${props.title}</h3><p>Quantidade de tweets: ${props.qt_tweets}</p><p>Coeficiente de sentimento (-1 a 1): ${props.coe_sent}</p>`;
+                var content = `<h3>${props.title}</h3><p>Quantidade de tweets: ${props.qtd_tweets}</p><p>Quantidade de tweets positivos: ${props.qtd_positivos}</p><p>Quantidade de tweets negativos: ${props.qtd_negativos}</p><p>Coeficiente de sentimento (0 a 1): ${props.coe_sent}</p>`;
                 layer.bindPopup(content);
             }}).addTo(map);
           });
@@ -40,4 +40,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>
-
