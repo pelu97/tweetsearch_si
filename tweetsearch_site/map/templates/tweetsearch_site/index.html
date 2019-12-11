@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
+{% load static %}
 <html>
 	<head>
-		<title>Twitter Spots</title>
+		{% block title %}<title>Twitter Spots</title>{% endblock %}
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}">
 		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
+		{% block content %}
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -26,29 +27,30 @@
 							</div>
 						</div>
 						<nav>
-							<ul>
-								<li><a href="{% url "keyconfig" %}">Keyword</a></li>
-								<li><a href="{% url "map" %}">Mapa</a></li>
+							<ul>								
+								<li><a href="{% url 'keyconfig' %}">Keyword</a></li>
+								<li><a href="{% url 'map' %}">Mapa</a></li>	
+								<li><a href="https://github.com/pelu97/tweetsearch_si/blob/master/README.md" target="_blank">Readme</a></li>						
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
 					</header>
-
+		
 				<!-- Footer -->
 					<footer id="footer">
 						<p class="copyright">&copy; Gabriel Alves Castro, Pedro Lucas Pinto Andrade e Tiago Cabral de Faria: <a href="https://github.com/pelu97/tweetsearch_si" target="_blank">Repositório do Projeto</a>.</p>
 					</footer>
 
 			</div>
-
+		{% endblock %}
 		<!-- BG -->
 			<div id="bg"></div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
 	</body>
 </html>
