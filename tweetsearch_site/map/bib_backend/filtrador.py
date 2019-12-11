@@ -25,7 +25,7 @@ estados['nome'] = estados['nome'].apply(unidecode.unidecode).str.lower()
 municipios['nome'] = municipios['nome'].apply(unidecode.unidecode).str.lower()
 
 class filtrador():
-    
+
     #-Recebe um df com os twts tal como no formato gerado em json pela tweepy; recebe string com UF do estado
     def filtra_por_estado(df, ufEstado):
 
@@ -45,17 +45,17 @@ class filtrador():
                                        columns = ['localizacao'])
                 localizacoes = pd.DataFrame.append(localizacoes, aux)
                 continue
-            
+
             #pega a localizacao
             aux = pd.DataFrame(data = [
                                             user.get('location', {}).split(',')[0]
                                         ],
                                        columns = ['localizacao'])
             localizacoes = pd.DataFrame.append(localizacoes, aux, ignore_index = True)
-        
+
         if localizacoes is None:
             return None
-        
+
         #retira acentos e letras maiusculas
         localizacoes['localizacao'] = localizacoes['localizacao'].apply(unidecode.unidecode).str.lower()
 
@@ -67,10 +67,10 @@ class filtrador():
             # print(localizacoes.loc[i])
             if localizacoes.at[i, 'localizacao'] == '':
                 continue
-            
+
             # cria variavel booleana
             positivo = 0
-            
+
             #se a localizacao eh algum estado, o vetor positivo serah true
             positivo = (estado['nome'] == localizacoes.at[i, 'localizacao'])
             #se a localizacao eh algum dos municipios pertencentes ao estado, positivo serah true
@@ -94,7 +94,7 @@ class filtrador():
         return
 
 class transformador():
-    
+
     def geraSentimentosEstados(df):
 
             resultado = None
@@ -114,9 +114,11 @@ class transformador():
                             estados.at[i, 'lon'],
                             estados.at[i, 'lat'],
                             len(aux.index),
-                            coef
+                            coef['media'],
+                            coef['positivos'],
+                            coef['negativos']
                             ]],
-                        columns = ['localizacao', 'uf', 'longitude', 'latitude', 'qtd_twts', 'coeficiente_de_sentimento']
+                        columns = ['localizacao', 'uf', 'longitude', 'latitude', 'qtd_twts', 'coeficiente_de_sentimento', 'qtd_positivos', 'qtd_negativos']
 
                         )
 

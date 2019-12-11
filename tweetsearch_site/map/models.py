@@ -16,8 +16,10 @@ class Query(models.Model):
 
 class TweetSpot(models.Model):
     title = models.CharField(max_length=256)
-    coe_sent = models.FloatField()
-    qt_tweets = models.IntegerField()
+    coe_sent = models.FloatField(default=0)
+    qtd_positivos = models.IntegerField(default=0)
+    qtd_negativos = models.IntegerField(default=0)
+    qtd_tweets = models.IntegerField()
     geom = PointField()
     # { "type": "Point", "coordinates": [LONGITUDE, LATITUDE] }
 
@@ -26,5 +28,3 @@ class TweetSpot(models.Model):
 
     def __str__(self):
         return self.title
-
-    

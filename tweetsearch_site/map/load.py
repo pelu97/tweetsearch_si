@@ -43,5 +43,5 @@ def update(new_query_ini, new_query_fim, keyword):
 
     for index, row in df_proc.iterrows():
         # print(row)
-        tweet = TweetSpot(title = row["localizacao"],  coe_sent = row["coeficiente_de_sentimento"], qt_tweets = row["qtd_twts"], geom = {"type": "Point", "coordinates": [row["longitude"],row["latitude"]]})
+        tweet = TweetSpot(title = row["localizacao"],  coe_sent = row["coeficiente_de_sentimento"], qtd_positivos = row["qtd_positivos"], qtd_negativos = row["qtd_negativos"], qtd_tweets = row["qtd_twts"], geom = {"type": "Point", "coordinates": [row["longitude"],row["latitude"]]})
         tweet.save()
