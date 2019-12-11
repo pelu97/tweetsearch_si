@@ -106,7 +106,7 @@ class transformador():
                 if aux is None:
                     continue
 
-                coef = analisadorSentimentos.analisaSentimentosTwts(df = aux)
+                coef = analisadorSentimentos.analisadorSentimentos.analisaSentimentosTwts(df = aux)
 
                 aux2 = pd.DataFrame(data = [[
                             estados.at[i, 'nome'],
